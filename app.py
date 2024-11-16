@@ -5,6 +5,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from model_utils import save_model  # Import save_model function
 
 # Load datasets
 df_exams = pd.read_csv('exams.csv')
@@ -86,7 +87,5 @@ plt.xlabel('Actual Performance Index')
 plt.ylabel('Predicted Performance Index')
 plt.show()
 
-
-import joblib
-joblib.dump(model, 'graduation_predictor_model.pkl')
-
+# Save the model
+save_model(model)  # Use save_model function from model_utils
